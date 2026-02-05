@@ -1,0 +1,17 @@
+# AvatarArts Website Robots.txt
+# https://avatararts.org
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://avatararts.org/sitemap.xml
+
+# Disallow access to certain directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /assets/private/
+
+# Crawl-delay: 1  # Uncomment to slow down crawling if needed

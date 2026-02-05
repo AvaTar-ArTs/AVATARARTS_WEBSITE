@@ -1,0 +1,142 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}AvatarArts - Creative Automation Platform{% endblock %}
+
+{% block description %}AvatarArts is a creative automation platform for artists and musicians, featuring advanced AI tools for music organization and enhancement.{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">AvatarArts</h1>
+                <p class="lead mb-4">Creative Automation Platform for Artists & Musicians</p>
+                <p class="mb-4">Advanced AI tools for music organization, analysis, and enhancement. Developed by Steven Chaplinski.</p>
+                <div class="hero-buttons">
+                    <a href="/collection" class="btn btn-primary btn-lg me-3">Explore Collection</a>
+                    <a href="/technology" class="btn btn-outline-light btn-lg">Learn Technology</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='IMAGES/hero-placeholder.jpg') }}" alt="AvatarArts Creative Platform" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="features-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">nocTurneMeLoDieS V4 Features</h2>
+                <p class="text-muted">Advanced creative automation capabilities</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 bg-white rounded shadow">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-music fa-3x text-primary"></i>
+                    </div>
+                    <h4>Album-Based Organization</h4>
+                    <p>Each song becomes its own album containing all variations and remixes.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 bg-white rounded shadow">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-brain fa-3x text-primary"></i>
+                    </div>
+                    <h4>AI Enhancement</h4>
+                    <p>Advanced AI models for content analysis, recommendations, and generation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4 bg-white rounded shadow">
+                    <div class="feature-icon mb-3">
+                        <i class="fas fa-sync-alt fa-3x text-primary"></i>
+                    </div>
+                    <h4>Cross-Platform Integration</h4>
+                    <p>Seamless integration between Suno.com/@avatararts and GitHub.com/ichoake/AvaTar-Arts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stats-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">Collection Statistics</h2>
+                <p class="text-muted">Current state of the AvatarArts collection</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded shadow">
+                    <h3 class="text-primary">{{ collection.total_tracks }}</h3>
+                    <p class="mb-0">Total Tracks</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded shadow">
+                    <h3 class="text-primary">{{ collection.total_albums }}</h3>
+                    <p class="mb-0">Albums</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded shadow">
+                    <h3 class="text-primary">{{ collection.total_repositories }}</h3>
+                    <p class="mb-0">Repositories</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card text-center p-4 bg-white rounded shadow">
+                    <h3 class="text-primary">{{ collection.avatararts_repositories }}</h3>
+                    <p class="mb-0">AvatarArts Repos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="themes-section py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="fw-bold">Creative Themes</h2>
+                <p class="text-muted">Explore the thematic collections</p>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for key, coll in collection.special_collections.items() %}
+            <div class="col-md-4">
+                <div class="theme-card p-4 bg-white rounded shadow">
+                    <h4>{{ coll.name }}</h4>
+                    <p class="text-muted">{{ coll.primary_theme }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-primary">{{ coll.track_count }} tracks</span>
+                        <a href="/collection#{{ key }}" class="btn btn-sm btn-outline-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="cta-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="fw-bold mb-4">Ready to Explore?</h2>
+                <p class="mb-4">Discover the full AvatarArts collection and creative automation tools.</p>
+                <a href="/collection" class="btn btn-primary btn-lg">View Collection</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

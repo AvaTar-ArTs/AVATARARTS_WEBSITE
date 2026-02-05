@@ -1,0 +1,35 @@
+# AvatarArts Website Requirements
+# Flask-based web application for avatararts.org
+
+# Core Framework
+Flask==2.3.3
+Flask-Login==0.6.3
+Flask-WTF==1.1.1
+Flask-SQLAlchemy==3.0.5
+
+# Web Development
+Jinja2==3.1.2
+Werkzeug==2.3.7
+gunicorn==21.2.0
+
+# Data Processing
+requests==2.31.0
+python-dotenv==1.0.0
+
+# Database (if needed)
+SQLAlchemy==2.0.20
+psycopg2-binary==2.9.7  # For PostgreSQL
+
+# Utilities
+Pillow==10.0.0  # For image processing
+cryptography==41.0.4  # For security
+
+# Development Tools
+pytest==7.4.2
+flake8==6.0.0
+black==23.9.1
+
+# Optional: For advanced features
+# redis==4.6.0  # For caching
+# celery==5.3.1  # For background tasks
+# boto3==1.28.61  # For AWS services

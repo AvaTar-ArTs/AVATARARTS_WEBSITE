@@ -1,0 +1,152 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Technology - nocTurneMeLoDieS V4 System{% endblock %}
+
+{% block description %}Learn about the technology behind the AvatarArts creative automation platform and nocTurneMeLoDieS V4 system.{% endblock %}
+
+{% block content %}
+<div class="technology-hero py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold">Technology</h1>
+                <p class="lead">nocTurneMeLoDieS V4 - Creative Automation Platform</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="technology-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">nocTurneMeLoDieS V4 System</h2>
+                    <p>The nocTurneMeLoDieS V4 system is the core technology behind AvatarArts, representing the fourth generation of the creative automation platform. It integrates content from multiple sources and applies advanced AI techniques to organize, analyze, and enhance creative works.</p>
+                    
+                    <div class="features-grid mt-4">
+                        {% for feature in tech_info.v4_features %}
+                        <div class="feature-item mb-3">
+                            <i class="fas fa-check-circle text-success me-2"></i>{{ feature }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">Core Technologies</h2>
+                    <p>The AvatarArts platform is built using modern technologies that enable scalable and efficient creative automation:</p>
+                    
+                    <div class="technologies-grid">
+                        {% for tech in tech_info.core_technologies %}
+                        <div class="tech-item mb-2">
+                            <i class="fas fa-cube text-primary me-2"></i>{{ tech }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">Integration Points</h2>
+                    <p>The system seamlessly connects to multiple platforms and services:</p>
+                    
+                    <div class="integrations-grid">
+                        {% for integration in tech_info.integration_points %}
+                        <div class="integration-item mb-2">
+                            <i class="fas fa-plug text-info me-2"></i>{{ integration }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">AI Enhancement Features</h2>
+                    <p>The platform includes advanced AI capabilities for creative enhancement:</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="ai-feature-card p-4 bg-light rounded">
+                                <h5><i class="fas fa-brain text-primary me-2"></i>Content Analysis</h5>
+                                <p>Deep analysis of audio and lyrical content using AI models</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ai-feature-card p-4 bg-light rounded">
+                                <h5><i class="fas fa-search text-success me-2"></i>Similarity Detection</h5>
+                                <p>Advanced algorithms to identify related content</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ai-feature-card p-4 bg-light rounded">
+                                <h5><i class="fas fa-star text-warning me-2"></i>Recommendation Engine</h5>
+                                <p>Personalized suggestions based on AvatarArts themes</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ai-feature-card p-4 bg-light rounded">
+                                <h5><i class="fas fa-comments text-info me-2"></i>Semantic Search</h5>
+                                <p>Find content by meaning, not just keywords</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">Album-Based Organization</h2>
+                    <p>The core principle of the system is album-based organization:</p>
+                    <ul>
+                        <li>Each song becomes its own album containing all variations</li>
+                        <li>All remixes, versions, and interpretations are grouped together</li>
+                        <li>Content is preserved while improving accessibility</li>
+                        <li>Thematic organization by Steven's creative themes</li>
+                    </ul>
+                </div>
+
+                <div class="technology-section mb-5">
+                    <h2 class="fw-bold mb-4">AvatarArts-Specific Features</h2>
+                    <p>The system is specifically designed for Steven Chaplinski's creative workflow:</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="theme-feature-card p-4 bg-white rounded shadow">
+                                <h5>Thematic Organization</h5>
+                                <p>Content organized by Steven's creative themes (Urban Mythology, Nature Mythology, etc.)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="theme-feature-card p-4 bg-white rounded shadow">
+                                <h5>Special Collections</h5>
+                                <p>Dedicated organization for signature series (Alley Chronicles, Willow Variations, etc.)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="theme-feature-card p-4 bg-white rounded shadow">
+                                <h5>Artist-Centric Design</h5>
+                                <p>Features designed specifically for Steven's creative process</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="theme-feature-card p-4 bg-white rounded shadow">
+                                <h5>Creative Preservation</h5>
+                                <p>All variations preserved while improving access</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technology-section">
+                    <h2 class="fw-bold mb-4">Future Evolution</h2>
+                    <p>The platform is designed for continuous evolution:</p>
+                    <ul>
+                        <li>V5 will include enhanced AI capabilities</li>
+                        <li>Expanded platform integrations</li>
+                        <li>Advanced collaboration features</li>
+                        <li>Mobile applications</li>
+                        <li>Generative AI for content creation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

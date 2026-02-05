@@ -1,0 +1,155 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Contact - AvatarArts Creative Platform{% endblock %}
+
+{% block description %}Contact the AvatarArts team for inquiries about the creative automation platform and nocTurneMeLoDieS system.{% endblock %}
+
+{% block content %}
+<div class="contact-hero py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold">Contact</h1>
+                <p class="lead">Get in touch with the AvatarArts team</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="contact-section mb-5">
+                    <h2 class="fw-bold mb-4">Get in Touch</h2>
+                    <p>Have questions about the AvatarArts creative automation platform or the nocTurneMeLoDieS V4 system? We'd love to hear from you!</p>
+                    
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-6">
+                            <div class="contact-method p-4 bg-light rounded">
+                                <h5><i class="fas fa-envelope text-primary me-2"></i>Email</h5>
+                                <p class="mb-0">sjchaplinski@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-method p-4 bg-light rounded">
+                                <h5><i class="fab fa-github text-primary me-2"></i>GitHub</h5>
+                                <p class="mb-0"><a href="https://github.com/ichoake" target="_blank">github.com/ichoake</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-method p-4 bg-light rounded">
+                                <h5><i class="fas fa-music text-primary me-2"></i>Suno</h5>
+                                <p class="mb-0"><a href="https://suno.com/@avatararts" target="_blank">suno.com/@avatararts</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact-method p-4 bg-light rounded">
+                                <h5><i class="fas fa-globe text-primary me-2"></i>Website</h5>
+                                <p class="mb-0"><a href="https://avatararts.org" target="_blank">avatararts.org</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section mb-5">
+                    <h2 class="fw-bold mb-4">Developer Information</h2>
+                    <div class="developer-info p-4 bg-white rounded shadow">
+                        <h5>Steven Chaplinski</h5>
+                        <p class="mb-2"><strong>Role:</strong> Creative Automation Engineer | AI Developer for Artists & Musicians</p>
+                        <p class="mb-2"><strong>Specialties:</strong> Creative Automation Engineering, AI Development for Artists & Musicians, Python & AI Alchemist</p>
+                        <p><strong>Location:</strong> Gainesville, FL, USA</p>
+                    </div>
+                </div>
+
+                <div class="contact-section mb-5">
+                    <h2 class="fw-bold mb-4">Project Information</h2>
+                    <div class="project-info p-4 bg-white rounded shadow">
+                        <h5>nocTurneMeLoDieS V4</h5>
+                        <p class="mb-2"><strong>Purpose:</strong> Creative Automation Platform for Artists & Musicians</p>
+                        <p class="mb-2"><strong>Features:</strong> Album-based organization, AI enhancement, cross-platform integration</p>
+                        <p class="mb-2"><strong>Integration:</strong> Suno.com/@avatararts, GitHub.com/ichoake/AvaTar-Arts</p>
+                        <p><strong>Special Collections:</strong> Alley Chronicles (151+ tracks), Willow Variations (47+ tracks), Summer Remixes (34+ tracks), Hero Collections (30+ tracks), Junkyard Symphonies (50+ tracks)</p>
+                    </div>
+                </div>
+
+                <div class="contact-section mb-5">
+                    <h2 class="fw-bold mb-4">Areas of Interest</h2>
+                    <div class="interests-grid">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="interest-item p-3 bg-light rounded">
+                                    <h6><i class="fas fa-music text-primary me-2"></i>Creative Automation</h6>
+                                    <p class="mb-0">Automating creative workflows for artists and musicians</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="interest-item p-3 bg-light rounded">
+                                    <h6><i class="fas fa-robot text-primary me-2"></i>AI Development</h6>
+                                    <p class="mb-0">Developing AI tools specifically for creative professionals</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="interest-item p-3 bg-light rounded">
+                                    <h6><i class="fas fa-compact-disc text-primary me-2"></i>Music Organization</h6>
+                                    <p class="mb-0">Advanced systems for organizing large music collections</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="interest-item p-3 bg-light rounded">
+                                    <h6><i class="fas fa-tags text-primary me-2"></i>Thematic Grouping</h6>
+                                    <p class="mb-0">Organizing content by creative themes and concepts</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-section">
+                    <h2 class="fw-bold mb-4">Send a Message</h2>
+                    <form id="contactForm" class="row g-3">
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // In a real implementation, you would send this data to a server
+    // For now, we'll just show an alert
+    alert('Thank you for your message! In a real implementation, this would be sent to the server.');
+    
+    // Reset form
+    this.reset();
+});
+</script>
+{% endblock %}

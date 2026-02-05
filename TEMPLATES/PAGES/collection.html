@@ -1,0 +1,229 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}AvatarArts Collection - nocTurneMeLoDieS V4{% endblock %}
+
+{% block description %}Explore the AvatarArts collection featuring over 1,184 tracks organized by creative themes and advanced AI analysis.{% endblock %}
+
+{% block extra_head %}
+<style>
+    .chart-container {
+        position: relative;
+        height: 400px;
+        margin-bottom: 2rem;
+    }
+    .collection-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    .collection-card {
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 0.2s;
+    }
+    .collection-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    .collection-header {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .collection-body {
+        padding: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="collection-hero py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold">AvatarArts Collection</h1>
+                <p class="lead">nocTurneMeLoDieS V4 - Creative Automation Platform</p>
+                <p class="text-muted">{{ collection.total_tracks }} tracks organized across {{ collection.total_albums }} albums</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="collection-content py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="fw-bold mb-4">Collection Overview</h2>
+                <p>The AvatarArts collection represents a comprehensive archive of creative works organized using the nocTurneMeLoDieS V4 system. Each song becomes its own album containing all variations, remixes, and versions.</p>
+                
+                <div class="row g-3 mb-5">
+                    <div class="col-md-4">
+                        <div class="stat-card text-center p-3 bg-primary text-white rounded">
+                            <h3 class="mb-0">{{ collection.total_tracks }}</h3>
+                            <small>Total Tracks</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center p-3 bg-success text-white rounded">
+                            <h3 class="mb-0">{{ collection.total_albums }}</h3>
+                            <small>Albums</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card text-center p-3 bg-info text-white rounded">
+                            <h3 class="mb-0">{{ collection.avatararts_repositories }}</h3>
+                            <small>AvatarArts Repos</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="fw-bold mb-4">Special Collections</h3>
+                <div class="collection-grid">
+                    {% for key, coll in collection.special_collections.items() %}
+                    <div class="collection-card" id="{{ key }}">
+                        <div class="collection-header">
+                            <h4 class="mb-0">{{ coll.name }}</h4>
+                        </div>
+                        <div class="collection-body">
+                            <p class="text-muted mb-2">{{ coll.primary_theme }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-primary">{{ coll.track_count }} tracks</span>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <h2 class="fw-bold mb-4">Collection Insights</h2>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Top Themes</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="themeChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0">Top Genres</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="genreChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Top Moods</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Theme Chart
+    const themeCtx = document.getElementById('themeChart').getContext('2d');
+    const themeChart = new Chart(themeCtx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                {% for theme, count in insights.thematic_analysis.top_themes[:5] %}
+                    '{{ theme }}',
+                {% endfor %}
+            ],
+            datasets: [{
+                data: [
+                    {% for theme, count in insights.thematic_analysis.top_themes[:5] %}
+                        {{ count }},
+                    {% endfor %}
+                ],
+                backgroundColor: [
+                    '#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Genre Chart
+    const genreCtx = document.getElementById('genreChart').getContext('2d');
+    const genreChart = new Chart(genreCtx, {
+        type: 'bar',
+        data: {
+            labels: [
+                {% for genre, count in insights.genre_analysis.top_genres[:5] %}
+                    '{{ genre }}',
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Track Count',
+                data: [
+                    {% for genre, count in insights.genre_analysis.top_genres[:5] %}
+                        {{ count }},
+                    {% endfor %}
+                ],
+                backgroundColor: '#28a745'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Mood Chart
+    const moodCtx = document.getElementById('moodChart').getContext('2d');
+    const moodChart = new Chart(moodCtx, {
+        type: 'polarArea',
+        data: {
+            labels: [
+                {% for mood, count in insights.mood_analysis.top_moods[:5] %}
+                    '{{ mood }}',
+                {% endfor %}
+            ],
+            datasets: [{
+                data: [
+                    {% for mood, count in insights.mood_analysis.top_moods[:5] %}
+                        {{ count }},
+                    {% endfor %}
+                ],
+                backgroundColor: [
+                    '#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}
